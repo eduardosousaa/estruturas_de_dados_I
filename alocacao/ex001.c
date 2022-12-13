@@ -6,39 +6,39 @@ Um usuário vai informar uma série de números. O usuário não sabe quantos se
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 int main(){
     srand(time(NULL));
-    int *vet1 = NULL, i = 0;
-    float x = 0, soma = 0, dp = 0, media = 0;
+    //n: quantidade de números no conjunto de dados.
+    int n = 0; 
+    float *vet1 = NULL, x = 0.0, soma = 0.0, dp = 0.0, media = 0.0;
 
     //vet1 = (int * ) malloc (n * sizeof(int));
-
     while (x != -1){
         scanf("%f", &x);
         if (x == -1) {
             break;
         }
-        vet1 = (float *) realloc (vet1, sizeof(float) * (i + 1));
-        vet1[i] = x;
-        soma += vet1[i];
-        i++;
+        vet1 = (float *) realloc (vet1, sizeof(float) * (n + 1));
+        vet1[n] = x;
+        soma += vet1[n];
+        n++;
     }
-    for (int j = 0; j < i; j++){
-        printf("%f \n", vet1[j]);
+    for (int i = 0; i < n; i++){
+        printf("%.2f \n", vet1[i]);
     }
 
-    media = soma / i;
+    //Cálculo da média
+    media = soma / n;
 
-    for (int y = 0; y < i; y++){
-        dp += pow((vet1[y] - media),2);
+    for (int j = 0; j < n; j++){
+        dp += pow((vet1[j] - media),2);
     }
-    
+    dp = sqrt(dp / (n - 1));
 
-    /*dp = pow(dp, 2);*/
-    dp = dp / i;
-    dp = sqrt(dp);
-    printf("Desvio padrao: %f\n", dp);
-    printf("Media: %f\n", media);
+
+    printf("Desvio padrao: %.2f\n", dp);
+    printf("Media: %.2f\n", media);
     
 }
