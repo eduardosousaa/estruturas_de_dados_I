@@ -1,22 +1,24 @@
 #include <stdio.h>
 
-double calculaJuros(double valorInicial, int numMeses, double taxaJuros){
-    int total = 0;
+float calculaJuros(float valorInicial, int numMeses, float taxaJuros){
     if (numMeses == 0) {
         return valorInicial;
     } else {
-        valorInicial = valorInicial * (1 + (taxaJuros / 100));
+        valorInicial = valorInicial * (1 + taxaJuros);
         return calculaJuros(valorInicial, numMeses - 1, taxaJuros);
     }
 }
 
 int main(){
     int numMeses;
-    double valorInicial, taxaJuros, x;
+    float valorInicial, taxaJuros, total;
 
-    scanf("%lf\n", &valorInicial);
-    scanf("%d\n", &numMeses);
-    scanf("%lf", &taxaJuros);
-    x = calculaJuros(valorInicial, numMeses, taxaJuros);
-    printf("%.2lf", x);
+    printf("Digite o valor inicial: \n");
+    scanf("%f", &valorInicial);
+    printf("Digite o numero de meses: \n");
+    scanf("%d", &numMeses);
+    printf("Digite a taxa de juros: \n");
+    scanf("%f", &taxaJuros);
+    total = calculaJuros(valorInicial, numMeses, taxaJuros);
+    printf("Total = %.2f R$", total);
 }

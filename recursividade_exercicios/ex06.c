@@ -2,34 +2,48 @@
 #include <stdlib.h>
 #include <time.h>
 
-int buscaSequencial(int v, int *vet, int tam){
-    if (vet[tam] == v){
-        return vet[tam];
+int buscaSequencial(int valor, int *vet, int tam){
+    if (vet[tam] == valor){
+        return vet[tam]; 
     } 
     else if (tam == 0){
-         return -9; //Significa que o valor não foi encontrado
+         return -1; //Significa que o valor não foi encontrado
     }
-    
-    return buscaSequencial(v, vet, tam - 1);
+    return buscaSequencial(valor, vet, tam - 1);
 }
 
 int main(){
-    int v, vet[5], tam;
+    int valor, *vet, tam, busca;
     srand(time(NULL));
 
-    for (int i = 0; i < 5; i++){
-        vet[i] = rand() % 10;
+    printf("Tamanho do vetor: ");
+    scanf("%d", &tam);
+
+    vet = (int *) malloc (tam * sizeof(int));
+
+    if (vet == NULL){
+        printf("Memoria insuficiente");
+        exit(1);
     }
 
-    for (int i = 0; i < 5; i++){
+    for (int i = 0; i < tam; i++){
+        vet[i] = rand() % 256;
+    }
+
+     //Imprimir o vetor
+    for (int i = 0; i < tam; i++){
         printf("%d ", vet[i]);
     }
+    
 
-    tam = sizeof(vet)/sizeof(vet[0]); //Tamanho do vetor
-
-    printf("\nDigite um valor: \n");
-    scanf("%d", &v);
-    printf("Valor: %d", buscaSequencial(v, vet, tam));
+    printf("\nDigite um valor para busca: ");
+    scanf("%d", &valor);
+    busca = buscaSequencial(valor, vet, tam);
+    if (busca == -1) {
+        printf("Valor nao encontrado :(");
+    } else {
+        printf("O valor %d foi encontrado :)", busca);
+    }
     
     return 0;
 }
