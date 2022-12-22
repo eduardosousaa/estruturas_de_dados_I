@@ -3,8 +3,12 @@
 #include <time.h>
 
 int buscaSequencial(int v, int *vet, int tam){
-    if (vet[tam] == v) return vet[tam];
-    else if (tam == 0) return -9; //Significa que o valor não foi encontrado
+    if (vet[tam] == v){
+        return vet[tam];
+    } 
+    else if (tam == 0){
+         return -9; //Significa que o valor não foi encontrado
+    }
     
     return buscaSequencial(v, vet, tam - 1);
 }
