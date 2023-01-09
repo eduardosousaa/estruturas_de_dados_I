@@ -24,8 +24,8 @@ int main() {
         i++;
     }
     media = somatario / i;
-    printf("Somatório: %d\n", somatario);
-    printf("MÃ©dia: %f\n", media);
+    printf("Somatorio: %d\n", somatario);
+    printf("Media: %f\n", media);
     printf("Menor valor: %d\n", menor_valor);
     printf("Maior valor: %d\n", maior_valor);
 } 
