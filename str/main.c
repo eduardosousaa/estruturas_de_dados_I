@@ -7,6 +7,7 @@ int main(){
     char n1[] = {"Eduardo"}; 
     char n2[] = {"Carrros"};
     int x = 0;
+    char conca;
 
     x = tamanho(n1);
     printf("%d\n", x);
@@ -18,12 +19,9 @@ int main(){
     } else {
         printf("Nomes iguais! \n");
     }
+    
+    concatenar(n1, n2);
+    printf("%s\n", n1);
 
     liberar(n1);
-
-    char conca;
-    conca = concatenar(n1, n2);
-    printf("%c\n", conca);
-
-    return 0;
 }
