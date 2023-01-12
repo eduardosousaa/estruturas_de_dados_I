@@ -28,7 +28,7 @@ Imagem *criarImagem(int largura, int altura) {
 void preencherImagem(Imagem *img){
 	for (int i = 0; i < img->altura; i++)
 		for (int j = 0; j < img->largura; j++)
-			 setPixelValue(img, i, j, j+i);
+			 setPixelValue(img, i, j, 0);
 	
 }
 void imprimirImagem(Imagem *img){
