@@ -19,11 +19,11 @@ int main(){
         printf("Nomes iguais! \n");
     }
 
-    liberar(n1);
+    
+    concatenar(n1, n2);
+    printf("%s\n", n1);
 
-    char conca;
-    conca = concatenar(n1, n2);
-    printf("%c\n", conca);
+    liberar(n1);
 
     return 0;
 }

@@ -1,4 +1,3 @@
-char ler();
 char concatenar(char * str1, char * str2);
 int comparar(char * str1, char * str2);
 int tamanho(char * str);
