@@ -3,6 +3,19 @@
 
 #include "str.h"
 
+char *lerStr(){
+    char *s;
+
+    s = (char*) malloc (50 * sizeof(s));
+    if (s == NULL){
+        printf("Memoria insuficiente");
+        exit(1);
+    }
+    scanf("%s", s);
+
+    return s;
+}
+
 int comparar(char * str1, char * str2){
     int x;
     for (x = 0;; x++){
